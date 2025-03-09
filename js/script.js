@@ -77,11 +77,11 @@ async function getSongs(folder) {
 // Function to Display SVG elements in each song container
 async function insert_svg() {
   try {
-    let svgResponse = await fetch("/assets/img/audio.svg");
+    let svgResponse = await fetch("/Streamify/assets/img/audio.svg");
     if (!svgResponse.ok) throw new Error("Failed to load SVG.");
     let svgHtml = await svgResponse.text();
 
-    let playbtnResponse = await fetch("/assets/img/playbtn.svg");
+    let playbtnResponse = await fetch("/Streamify/assets/img/playbtn.svg");
     if (!playbtnResponse.ok) throw new Error("Failed to load Play button SVG.");
     let playbtnHtml = await playbtnResponse.text();
 
@@ -125,7 +125,7 @@ async function togglePlayPause(songItem = currentlyPlaying) {
   let songPath;
   let track = songItem.innerText;
   let mainTrack = track.replaceAll(" ", "%20");
-  songPath = `/assets/songs/${currFolder}/` + mainTrack;
+  songPath = `/Streamify/assets/songs/${currFolder}/` + mainTrack;
 
   document.querySelector(".song_info > span").innerText = track;
 
@@ -134,16 +134,16 @@ async function togglePlayPause(songItem = currentlyPlaying) {
     if (CurrentSong.paused) {
       CurrentSong.play();
       highlightPlayingSong(songItem);
-      playbtn.src = "/assets/img/pause.svg";
+      playbtn.src = "/Streamify/assets/img/pause.svg";
     } else {
       CurrentSong.pause();
-      playbtn.src = "/assets/img/playbtn.svg";
+      playbtn.src = "/Streamify/assets/img/playbtn.svg";
     }
   } else {
     // Play new song
     CurrentSong.src = songPath;
     CurrentSong.play();
-    playbtn.src = "/assets/img/pause.svg";
+    playbtn.src = "/Streamify/assets/img/pause.svg";
     highlightPlayingSong(songItem);
   }
 }
@@ -181,7 +181,7 @@ async function displayAlbums() {
                                 fill="black" />
                         </svg>
                         <img class="card_image"
-                            src="/assets/songs/${folder}/cover.jpeg"
+                            src="/Streamify/assets/songs/${folder}/cover.jpeg"
                             alt="card_image">
                         <p>${response.title}</p>
                     </div>`;
