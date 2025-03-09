@@ -1,0 +1,139 @@
+:root {
+  --lightgrey: #b3b3b3;
+  --boxes: #1f1f1f;
+}
+
+body {
+  background-color: black;
+}
+
+
+
+/* ------------------------- Navbar ------------------------- */
+.homeIcon {
+  background-color: var(--boxes);
+}
+.homeIcon:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease;
+}
+.search .input:hover {
+  border: 2px solid white;
+  transition: 0.5s ease-in;
+}
+.search input:hover {
+  transition: 0.5s ease;
+}
+.search .input svg:hover {
+  fill: white;
+}
+
+.search .input,
+.search input {
+  background-color: var(--boxes);
+}
+.search input {
+  color: white;
+}
+.input span:nth-child(3) svg:hover {
+  fill: white;
+}
+
+.options .premium {
+  border: none;
+  background-color: #fff;
+}
+.options .premium:hover,
+.button_increase_size:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: 0.3s ease;
+}
+
+.options .androidApp h4 {
+  color: var(--lightgrey);
+}
+.options .androidApp:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: 0.3s ease;
+}
+/* .options .androidApp:hover h4 {
+  transition: 0.3s ease;
+  color: white;
+} */
+.options .androidApp:hover h4,
+.options .androidApp:hover img[src="/Assets/installApp.svg"] {
+  filter: brightness(200%);
+  transition: 0.3s ease;
+
+}
+.options .notification img:hover {
+  filter: brightness(200%);
+  transition: 0.3s ease;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+.options .user {
+  background-color: #1cc558;
+  border: 6px solid var(--boxes);
+}
+
+/* ------------------------- Navbar Ends ------------------------- */
+
+/* ---------------------------------- Main Panels --------------------------------- */
+
+.left_panel,
+.right_panel {
+  background-color: #121212;
+  color: white;
+}
+
+/* ------------------------- Left Panel ------------------------- */
+
+.info li a {
+  color: var(--lightgrey);
+  text-decoration: none;
+}
+.library button {
+  border: none;
+  background-color: transparent;
+}
+.library button:hover, .library div:first-child:hover{
+  cursor: pointer;
+  filter: brightness(200%);
+  transition: 0.3s ease;
+}
+.library p {
+  color: var(--lightgrey);
+  font-weight: bold;
+}
+.add_album img:hover{
+  background-color: var(--boxes);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.playlist_albums .songsList li {
+  /* background-color: var(--boxes); */
+  background-color: #1f1f1f25;
+  
+  color: white;
+  border: none;
+}
+.playlist_albums .songsList li:hover {
+  background-color: #1f1f1f;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.lang button {
+  background-color: transparent;
+  color: white;
+  border: 1.5px solid #545454;
+}
+/* ------------------------- Left Panel Ends ------------------------- */
+
+.card_container .card:hover{
+  background-color: var(--boxes);
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streamify - Web Player: Music for everyone</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/color.css">
+</head>
+
+<body>
+
+    <nav>
+       
+        <ul>
+            <li>
+                <img class="hamburger" src="/assets/img/hamburger.svg" alt="hamburger">
+                <span class="logo">
+                    <a href="https://umk-forge.netlify.app/">
+                        <img src="./assets/img/logo.svg" alt="">
+                    </a>
+                </span>
+            </li>
+            <li>
+                <div class="search">
+                    <a class="homeIcon" href="https://umk-forge.netlify.app/">
+                        <img src="/assets/img/homebtn.svg" alt="homebtn">
+                    </a>
+                    <span class="input">
+                        <svg data-encore-id="icon" role="img" aria-hidden="true"
+                            class="Svg-sc-ytk21e-0 bHdpig e-9541-icon M9l40ptEBXPm03dU3X1k" data-testid="search-icon"
+                            viewBox="0 0 24 24" fill="#B3B3B3">
+                            <path
+                                d="M10.533 1.27893C5.35215 1.27893 1.12598 5.41887 1.12598 10.5579C1.12598 15.697 5.35215 19.8369 10.533 19.8369C12.767 19.8369 14.8235 19.0671 16.4402 17.7794L20.7929 22.132C21.1834 22.5226 21.8166 22.5226 22.2071 22.132C22.5976 21.7415 22.5976 21.1083 22.2071 20.7178L17.8634 16.3741C19.1616 14.7849 19.94 12.7634 19.94 10.5579C19.94 5.41887 15.7138 1.27893 10.533 1.27893ZM3.12598 10.5579C3.12598 6.55226 6.42768 3.27893 10.533 3.27893C14.6383 3.27893 17.94 6.55226 17.94 10.5579C17.94 14.5636 14.6383 17.8369 10.533 17.8369C6.42768 17.8369 3.12598 14.5636 3.12598 10.5579Z">
+                            </path>
+                        </svg>
+                        <input type="text" name="" id="" placeholder="What do you want to play?">
+
+                        <span>
+                            <svg data-encore-id="icon" role="img" aria-hidden="true"
+                                class="Svg-sc-ytk21e-0 bneLcE e-9541-icon" viewBox="0 0 24 24" fill="#B3B3B3">
+                                <path d="M15 15.5c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"></path>
+                                <path
+                                    d="M1.513 9.37A1 1 0 0 1 2.291 9h19.418a1 1 0 0 1 .979 1.208l-2.339 11a1 1 0 0 1-.978.792H4.63a1 1 0 0 1-.978-.792l-2.339-11a1 1 0 0 1 .201-.837zM3.525 11l1.913 9h13.123l1.913-9H3.525zM4 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v4h-2V3H6v3H4V2z">
+                                </path>
+                            </svg>
+                        </span>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="options">
+                    <div class="premium button_increase_size">
+                        <h4>Explore Premium</h4>
+                    </div>
+                    <div class="androidApp">
+                        <img src="/assets/img/installApp.svg" alt="installApp">
+                        <h4>Install App</h4>
+                    </div>
+                    <div class="notification">
+                        <img src="/assets/img/notification.svg" alt="notification">
+                    </div>
+                    <div class="user button_increase_size">
+                        <h4>Guest</h4>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="left_panel">
+            <img class="closebtn" src="/assets/img/closebtn.svg" alt="close">
+            <!-- <span class="close_button"> -->
+            <!-- </span> -->
+            <div class="library">
+                <div>
+
+                    <div>
+                        <button><span><img class="svg" src="/assets/img/library.svg" alt="library_svg"></span></button>
+                    </div>
+
+                    <p>Your Library</p>
+                </div>
+
+                <div class="add_album">
+                    <button><span><img class="svg" src="/assets/img/plus.svg" alt="plus_svg"></span></button>
+                </div>
+            </div>
+
+
+
+            <div class="playlist_albums">
+
+                <div class="songsList">
+                    <ul>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="right_panel">
+
+            <div class="playlists_section">
+
+                <div class="section_title">
+                    <h2>My Albums</h2>
+                </div>
+
+                <div class="card_container"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <footer>
+        <div class="soundbar">
+            <div class="song_info">
+                <svg class="first-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                    color="currentColor" fill="none" opacity="0.6">
+                    <path
+                        d="M3 14V9.5C3 8.67157 3.67157 8 4.5 8C5.32843 8 6 8.67157 6 9.5V16.5C6 17.3284 6.67157 18 7.5 18C8.32843 18 9 17.3284 9 16.5V4.5C9 3.67157 9.67157 3 10.5 3C11.3284 3 12 3.67157 12 4.5V19.5C12 20.3284 12.6716 21 13.5 21C14.3284 21 15 20.3284 15 19.5V8.5C15 7.67157 15.6716 7 16.5 7C17.3284 7 18 7.67157 18 8.5V15.5C18 16.3284 18.6716 17 19.5 17C20.3284 17 21 16.3284 21 15.5V12"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span class="song_name">Song Info</span>
+            </div>
+            <div class="song_player">
+                <div class="songControls">
+                    <img id="previous" src="/assets/img/previous.svg" alt="previous">
+                    <img id="play" src="assets/img/playbtn.svg" alt="playbtn">
+                    <img id="next" src="assets/img/next.svg" alt="next">
+                </div>
+                <div class="controlbar">
+                    <div class="songtime_current">--</div>
+                    <div class="seekbar">
+                        <div class="seekbar_track"></div>
+                        <div class="circle"></div>
+                        <div class="length"></div>
+
+                    </div>
+                    <div class="songtime_total">--</div>
+                </div>
+            </div>
+
+            <div class="volume_button">
+                <img class="volume" src="/assets/img/volume.svg" alt="volumebtn">
+                <div class="range">
+                    <input type="range" name="volumebar" id="volumebar">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
