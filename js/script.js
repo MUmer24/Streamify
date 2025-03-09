@@ -27,7 +27,7 @@ async function getSongs(folder) {
     songs = [];
 
     currFolder = folder;
-    let response = await fetch(`${window.location.origin}/assets/songs/${folder}/`);
+    let response = await fetch(`${window.location.origin}/Streamify/assets/songs/${folder}/`);
     if (!response.ok) throw new Error("Failed to fetch song list.");
     let textResponse = await response.text();
     let div = document.createElement("div");
@@ -151,7 +151,7 @@ async function togglePlayPause(songItem = currentlyPlaying) {
 
 // -----------------------------------------------------
 async function displayAlbums() {
-  let response = await fetch(`${window.location.origin}/assets/songs/`);
+  let response = await fetch(`${window.location.origin}/Streamify/assets/songs/`);
   if (!response.ok) throw new Error("Failed to fetch song list.");
   let textResponse = await response.text();
   let div = document.createElement("div");
@@ -169,7 +169,7 @@ async function displayAlbums() {
       let folder = e.href.split("/songs/").slice(-1)[0];
       // Get metadata of the folder
       let a = await fetch(
-        `${window.location.origin}/assets/songs/${folder}/info.json`
+        `${window.location.origin}/Streamify/assets/songs/${folder}/info.json`
       );
       let response = await a.json();
       card_container.innerHTML += `<div data-folder="${folder}" class="card">
