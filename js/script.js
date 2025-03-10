@@ -77,11 +77,11 @@ async function getSongs(folder) {
 // Function to Display SVG elements in each song container
 async function insert_svg() {
   try {
-    let svgResponse = await fetch("/Streamify/assets/img/audio.svg");
+    let svgResponse = await fetch("/Streamify/img/audio.svg");
     if (!svgResponse.ok) throw new Error("Failed to load SVG.");
     let svgHtml = await svgResponse.text();
 
-    let playbtnResponse = await fetch("/Streamify/assets/img/playbtn.svg");
+    let playbtnResponse = await fetch("/Streamify/img/playbtn.svg");
     if (!playbtnResponse.ok) throw new Error("Failed to load Play button SVG.");
     let playbtnHtml = await playbtnResponse.text();
 
@@ -134,16 +134,16 @@ async function togglePlayPause(songItem = currentlyPlaying) {
     if (CurrentSong.paused) {
       CurrentSong.play();
       highlightPlayingSong(songItem);
-      playbtn.src = "/Streamify/assets/img/pause.svg";
+      playbtn.src = "/Streamify/img/pause.svg";
     } else {
       CurrentSong.pause();
-      playbtn.src = "/Streamify/assets/img/playbtn.svg";
+      playbtn.src = "/Streamify/img/playbtn.svg";
     }
   } else {
     // Play new song
     CurrentSong.src = songPath;
     CurrentSong.play();
-    playbtn.src = "/Streamify/assets/img/pause.svg";
+    playbtn.src = "/Streamify/img/pause.svg";
     highlightPlayingSong(songItem);
   }
 }
