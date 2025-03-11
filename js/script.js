@@ -165,27 +165,39 @@ async function togglePlayPause(songItem = currentlyPlaying) {
 
 // -----------------------------------------------------
 async function displayAlbums() {
-  let response = await fetch(`${window.location.origin}/Streamify/songs/`);
+  let response = await fetch(`${window.location.origin}/Streamify/songs/folders.json`);
   if (!response.ok) throw new Error("Failed to fetch song list.");
-  let textResponse = await response.text();
-  let div = document.createElement("div");
-  div.innerHTML = textResponse;
-  let card_container = document.querySelector(".card_container");
+  // let textResponse = await response.text();
+  // let div = document.createElement("div");
+  // div.innerHTML = textResponse;
+  // let card_container = document.querySelector(".card_container");
 
-  let anchors = div.getElementsByTagName("a");
-  let array = Array.from(anchors);
+  // let anchors = div.getElementsByTagName("a");
+  // let array = Array.from(anchors);
 
-  for (let index = 0; index < array.length; index++) {
-    const e = array[index];
+  // for (let index = 0; index < array.length; index++) {
+  //   const e = array[index];
 
-    if (e.href.includes("/songs/")) {
-      let spcfolder = e.href.split("/songs/").slice(-1)[0].replace("_", " ");
-      let folder = e.href.split("/songs/").slice(-1)[0];
-      // Get metadata of the folder
-      let a = await fetch(
+  //   if (e.href.includes("/songs/")) {
+  //     let spcfolder = e.href.split("/songs/").slice(-1)[0].replace("_", " ");
+  //     let folder = e.href.split("/songs/").slice(-1)[0];
+  //     // Get metadata of the folder
+  //     let a = await fetch(
+  //       `${window.location.origin}/Streamify/songs/${folder}/info.json`
+  //     );
+  //     let response = await a.json();
+    const folders = await response.json();
+
+    const card_container = document.querySelector(".card_container");
+    card_container.innerHTML = "";
+
+    for (const folder of folders.folders) {
+      const infoResponse = await fetch(
         `${window.location.origin}/Streamify/songs/${folder}/info.json`
       );
-      let response = await a.json();
+      const info = await infoResponse.json();
+
+  
       card_container.innerHTML += `<div data-folder="${folder}" class="card">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
                             color="#000000" fill="none">
@@ -196,8 +208,8 @@ async function displayAlbums() {
                         </svg>
                         <img class="card_image"
                             src="/Streamify/songs/${folder}/cover.jpeg"
-                            alt="card_image">
-                        <p>${response.title}</p>
+                            alt="${info.title}card_image">
+                        <p>${info.title}</p>
                     </div>`;
     }
   }
