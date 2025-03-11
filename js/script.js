@@ -211,7 +211,7 @@ async function displayAlbums() {
                             alt="${info.title}card_image">
                         <p>${info.title}</p>
                     </div>`;
-    }
+    
   }
   // Load the playlist whenever the card is clicked
   Array.from(document.getElementsByClassName("card")).forEach((e) => {
