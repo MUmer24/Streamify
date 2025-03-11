@@ -27,28 +27,39 @@ async function getSongs(folder) {
     songs = [];
 
     currFolder = folder;
-    let response = await fetch(`https://mumer24.github.io//Streamify/assets/songs/${folder}/`);
+   // let response = await fetch(`https://mumer24.github.io//Streamify/assets/songs/${folder}/`);
     //let response = await fetch(`${window.location.origin}/Streamify/assets/songs/${folder}/`);
+     let response = await fetch(`${window.location.origin}/Streamify/assets/songs/${folder}/songs.json`);
     if (!response.ok) throw new Error("Failed to fetch song list.");
-    let textResponse = await response.text();
-    let div = document.createElement("div");
-    div.innerHTML = textResponse;
-    let as = div.getElementsByTagName("a");
+    // let textResponse = await response.text();
+    // let div = document.createElement("div");
+    // div.innerHTML = textResponse;
+    // let as = div.getElementsByTagName("a");
 
-    for (let index = 0; index < as.length; index++) {
-      const element = as[index];
-      if (element.href.endsWith(".mp3")) {
-        // Populate songsAddress with the full URL of the song
-        songsAddress.push(element.href);
+    // for (let index = 0; index < as.length; index++) {
+    //   const element = as[index];
+    //   if (element.href.endsWith(".mp3")) {
+    //     // Populate songsAddress with the full URL of the song
+    //     songsAddress.push(element.href);
 
-        // Extract the song name from the URL and push it to songsName
-        let songName = element.href.split(`/${folder}/`)[1];
-        songsName.push(songName);
+    //     // Extract the song name from the URL and push it to songsName
+    //     let songName = element.href.split(`/${folder}/`)[1];
+    //     songsName.push(songName);
 
-        // Push the song name with spaces replaced by "%20" to the songs array
-        songs.push(songName.replaceAll("%20", " "));
-      }
-    }
+    //     // Push the song name with spaces replaced by "%20" to the songs array
+    //     songs.push(songName.replaceAll("%20", " "));
+    //   }
+    // }    
+    const songData = await response.json();
+
+    songData.files.forEach(songFile => {
+      const songUrl = `${window.location.origin}/Streamify/assets/songs/${folder}/${encodeURIComponent(songFile)}`;
+      songsAddress.push(songUrl);
+      songsName.push(songFile);
+      songs.push(songFile.replaceAll("%20", "));
+    });
+
+    // Rest of your code
 
     // Insert songs' names in the playlist
     let ulElement = document.querySelector(".songsList ul");
