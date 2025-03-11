@@ -223,6 +223,7 @@ async function displayAlbums() {
       // Play the first song in the list upon album load
       let songList = document.querySelectorAll(".songsList ul li");
       await togglePlayPause(songList[0]);
+       document.querySelector(".left_panel").style.left = "0%";
     });
   });
 }
