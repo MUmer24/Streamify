@@ -56,7 +56,7 @@ async function getSongs(folder) {
       const songUrl = `${window.location.origin}/Streamify/assets/songs/${folder}/${encodeURIComponent(songFile)}`;
       songsAddress.push(songUrl);
       songsName.push(songFile);
-      songs.push(songFile.replaceAll("%20", "));
+      songs.push(songFile.replaceAll("%20", " "));
     });
 
     // Rest of your code
