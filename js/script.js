@@ -27,7 +27,8 @@ async function getSongs(folder) {
     songs = [];
 
     currFolder = folder;
-    let response = await fetch(`${window.location.origin}/Streamify/assets/songs/${folder}/`);
+    let response = await fetch(`https://mumer24.github.io//Streamify/assets/songs/${folder}/`);
+    //let response = await fetch(`${window.location.origin}/Streamify/assets/songs/${folder}/`);
     if (!response.ok) throw new Error("Failed to fetch song list.");
     let textResponse = await response.text();
     let div = document.createElement("div");
