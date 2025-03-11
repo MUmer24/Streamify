@@ -29,8 +29,6 @@ async function getSongs(folder) {
     currFolder = folder;
    // let response = await fetch(`https://mumer24.github.io//Streamify/assets/songs/${folder}/`);
     //let response = await fetch(`${window.location.origin}/Streamify/assets/songs/${folder}/`);
-     let response = await fetch(`${window.location.origin}/Streamify/assets/songs/${folder}/info.json`);
-    if (!response.ok) throw new Error("Failed to fetch song list.");
     // let textResponse = await response.text();
     // let div = document.createElement("div");
     // div.innerHTML = textResponse;
@@ -50,6 +48,9 @@ async function getSongs(folder) {
     //     songs.push(songName.replaceAll("%20", " "));
     //   }
     // }    
+     let response = await fetch(`${window.location.origin}/Streamify/assets/songs/${folder}/songs.json`);
+    if (!response.ok) throw new Error("Failed to fetch song list.");
+    
     const songData = await response.json();
 
     songData.files.forEach(songFile => {
